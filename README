@@ -1,1 +1,3 @@
-This is the readme.  I'll fix this up later.
+The aim of this package is to provide a simple cache interface and implementations using various popular caching
+systems alongside a backup filesystem cache for folks who might not have access to Redis, Memcache, or whatever else
+is out there that this winds up supporting.
