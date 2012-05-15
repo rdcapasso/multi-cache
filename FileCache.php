@@ -21,7 +21,7 @@ class FileCache implements CacheInterface
 
         //set the directory for caching
         if ($cache_dir != null && trim($cache_dir) != "")
-            $this->cache_dir = $cache_dir;
+            $this->cache_dir = rtrim($cache_dir, "/"); //remove trailing slash.
 
         //set filename for cache contents file.
         $this->cache_contents_filename = $this->cache_dir . "/cache_contents.txt";
