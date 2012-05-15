@@ -305,14 +305,11 @@ class FileCache implements CacheInterface
     private function getFileName($cacheKey, $fullPath = true)
     {
         //initialize return var.
-        $ret = "";
+        $ret = $cacheKey . ".cache" . ($this->use_compression !== false ? ".gz" : "");
 
-        //do we want the full path or just the filename?
-        if ($fullPath !== true) {
-            $ret = $cacheKey . ".cache" . ($this->use_compression !== false ? ".gz" : "");
-        } else {
-            $ret = $this->cache_dir . "/" . $cacheKey . ".cache" . ($this->use_compression !== false ? ".gz" : "");
-        }
+        //do we want the full path?
+        if ($fullPath === true)
+            $ret = $this->cache_dir . "/" . $ret;
 
         return $ret;
     }
